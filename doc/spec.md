@@ -94,7 +94,7 @@ R/WC: Read/Write 1 to bit to clear
 
 The following diagram illustrates a single pipeline-mode read transaction as implemented by this interface. It is derived from the official [Wishbone B4 Specification](https://cdn.opencores.org/downloads/wbspec_b4.pdf).
 
-![Wishbone Pipeline Single Read](wb-subordinate-if-sv/doc/img/wb_pipeline_single_read.svg)
+![Wishbone Pipeline Single Read](/doc/img/wb_pipeline_single_read.svg)
 
 ## 7. Verification Strategy
 
