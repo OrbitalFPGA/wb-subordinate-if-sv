@@ -2,7 +2,7 @@
 
 **IP Name:** wb_subordinate_interface
 
-**Version:** 1.1
+**Version:** 1.1.1
 
 **Author:** Michael B.
 
@@ -43,8 +43,8 @@ This module implements a reusable Wishbone B4-compliant slave interface. It conn
 | WB_REGISTER_ADDRESS_WIDTH | 16            | Number of least-significant address bits used for register space |
 | WB_DATA_WIDTH             | 32            | Number of bits in data bus                                       |
 | WB_DATA_GRANULARITY       | 8             | Smallest unit of transfer interface support                      |
-| IP_VERSION                | WB_DATA_WIDTH | Version of IP                                                    |
-| IP_DEVICE_ID              | WB_DATA_WIDTH | ID code for device                                               |
+| IP_VERSION                | WB_DATA_WIDTH | Value to expose in the VERSION Register                          |
+| IP_DEVICE_ID              | WB_DATA_WIDTH | Value to expose in the DEVICE_ID Register                          |
 
 
 ### 4.2 Wishbone Signals
@@ -60,18 +60,21 @@ This module implements a reusable Wishbone B4-compliant slave interface. It conn
 | i_wb_sel   | Input     | WB_DATA_WIDTH  / WB_DATA_GRANULARITY | Data select         | 
 | o_wb_dat   | Output    | WB_DATA_WIDTH                        | Data output Bus     |
 | o_wb_stall | Output    | 1                                    | Stall signal        | 
+| o_wb_ack | Output    | 1                                    | Acknowledge      | 
 
 ### 4.3 IP Signals
-| Signal     | Direction | Width                                | Description                |
-| ---------- | --------- | ------------------------------------ | -------------------------- |
+| Signal     | Direction | Width                                   | Description                |
+| ---------- | --------- | --------------------------------------- | -------------------------- |
 | o_ip_control  | Output    | WB_DATA_WIDTH                        | Control Register value     |
 | i_ip_status   | Input     | WB_DATA_WIDTH                        | Status Register value      |
 | o_ip_irq_mask | Input     | WB_DATA_WIDTH                        | Interrupt Mask register    |
 | i_ip_irq      | Input     | WB_DATA_WIDTH                        | Interrupt Register value   |
+| o_ip_address  | Output    | WB_REGISTER_ADDRESS_WIDTH            | Register offset for IP registers   |
 | i_ip_rdata    | Input     | WB_DATA_WIDTH                        | Data from IP register      |
 | i_ip_read_en  | Input     | 1                                    | Enable reading IP register |
 | o_ip_wdata    | Output    | WB_DATA_WIDTH                        | Data to IP register        |
 | o_ip_write_en | Output    | 1                                    | Enable writing IP register |
+| i_ip_ack | Input    | 1                                    | IP acknowledge |
 
 ## 5. Register Map
 | Offset | Name         | Description                                 | R/W  |
@@ -84,7 +87,7 @@ This module implements a reusable Wishbone B4-compliant slave interface. It conn
 | 0x14   | STATUS       | Status bits (ready, busy, error, etc.)      | R    |  
 | 0x18   | RESERVED     | RESERVED                                    | R    |  
 | 0x1C   | RESERVED     | RESERVED                                    | R    |  
-| 0x20   | IP_SPECIFIC  | IP-specific register, see IP documentation  | X    |  
+| 0x20+   | IP_SPECIFIC  | IP-specific register, see IP documentation  | X    |  
 
 **NOTE:** The interface defines register locations but leaves bitfield semantics to the IP
 
@@ -117,10 +120,13 @@ The following diagrams illustrate transactions as implemented by this interface.
 
 ## 9. Change History
 
-| Version | Date           | Changes                   |
-|---------|----------------|---------------------------|
-| 1.0     | April 18, 2025 | Initial draft             |
-| 1.1     | April 18, 2025 | Added timing diagrams     |
+| Version | Date             | Changes                   |
+|---------|----------------  |---------------------------|
+| 1.0     | April 18, 2025   | Initial draft             |
+| 1.1     | April 18, 2025   | Added timing diagrams     |
+| 1.1.1     | April 18, 2025 | Add o_ip_address, o_ip_ack, and o_wb_ack port. Rephrased wording for description of IP_VERSION and IP_DEVICE_ID parameter   |
+| 1.1.2 | April 18, 2025 | Fix typos |
+
 
 ## 10. References
 
