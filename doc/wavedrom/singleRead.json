@@ -1,0 +1,33 @@
+{signal: [
+        {name: 'i_wb_clk', wave: 'p...'
+        },
+        {name: 'i_wb_addr', wave: 'x3x.', data: ['VALID'
+            ]
+        },
+        {name: 'i_wb_we', wave: 'x0x.'
+        },
+        {name: 'i_wb_sel', wave: 'x3x.', data: ['VALID'
+            ]
+        },
+        {name: 'i_wb_dat', wave: 'xxxx', data: ['VALID'
+            ]
+        },
+        {name: 'o_wb_dat', wave: 'x.3x', data: ['VALID'
+            ]
+        },
+        {name: 'i_wb_cyc', wave: '01.0'
+        },
+        {name: 'i_wb_stb', wave: '010.'
+        },
+        {name: 'o_wb_ack', wave: '0.10'
+        },
+    ],
+  config: { hscale: 2
+    },
+    
+    head: {
+     text:'Wishbone Pipeline Single Read',
+     tick: 0,
+     every: 2
+    }
+}

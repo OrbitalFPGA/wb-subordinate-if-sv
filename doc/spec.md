@@ -2,7 +2,7 @@
 
 **IP Name:** wb_subordinate_interface
 
-**Version:** 1.0
+**Version:** 1.1
 
 **Author:** Michael B.
 
@@ -92,9 +92,20 @@ R/WC: Read/Write 1 to bit to clear
 
 ## 6. Timing Diagrams
 
-The following diagram illustrates a single pipeline-mode read transaction as implemented by this interface. It is derived from the official [Wishbone B4 Specification](https://cdn.opencores.org/downloads/wbspec_b4.pdf).
+The following diagrams illustrate transactions as implemented by this interface. They were derived from the official [Wishbone B4 Specification](https://cdn.opencores.org/downloads/wbspec_b4.pdf).
 
+**Figure 1:** Wishbone Pipeline Single Read Transfer  
 ![Wishbone Pipeline Single Read](/doc/img/wb_pipeline_single_read.svg)
+
+**Figure 2:** Wishbone Pipeline Single Write Transfer  
+![Wishbone Pipeline Single Write](/doc/img/wb_pipeline_single_write.svg)
+
+**Figure 3:** Wishbone Pipeline Block Read Transfer  
+![Wishbone Pipeline Block Read](/doc/img/wb_pipeline_block_read.svg)
+
+**Figure 4:** Wishbone Pipeline Block Write Transfer  
+![Wishbone Pipeline Block Write](/doc/img/wb_pipeline_block_write.svg)
+
 
 ## 7. Verification Strategy
 
@@ -106,9 +117,10 @@ The following diagram illustrates a single pipeline-mode read transaction as imp
 
 ## 9. Change History
 
-| Version | Date           | Changes           |
-|---------|----------------|-------------------|
-| 1.0     | April 18, 2025 | Initial draft     |
+| Version | Date           | Changes                   |
+|---------|----------------|---------------------------|
+| 1.0     | April 18, 2025 | Initial draft             |
+| 1.1     | April 18, 2025 | Added timing diagrams     |
 
 ## 10. References
 

@@ -1,0 +1,33 @@
+{signal: [
+        {name: 'i_wb_clk',  wave: 'p...|...'
+        },
+        {name: 'i_wb_addr', wave: 'x345|6x.', data: ['A0', 'A1', 'A2', 'Ax'
+            ]
+        },
+        {name: 'i_wb_we',   wave: 'x0..|.x.'
+        },
+        {name: 'i_wb_sel',  wave: 'x3..|.x.', data: ['VALID'
+            ]
+        },
+        {name: 'i_wb_dat',  wave: 'xxx.|...', data: ['VALID'
+            ]
+        },
+        {name: 'o_wb_dat',  wave: 'x.34|56x', data: ['D0', 'D1', 'Dx-1','Dx'
+            ]
+        },
+        {name: 'i_wb_cyc',  wave: '01..|..0'
+        },
+        {name: 'i_wb_stb',  wave: '01..|.0.'
+        },
+        {name: 'o_wb_ack',  wave: '0.1.|..0'
+        },
+    ],
+config: { hscale: 2
+    },
+
+head: {
+ text:'Wishbone Pipeline Block Read',
+ tick: 0,
+ every: 2
+    }
+}
