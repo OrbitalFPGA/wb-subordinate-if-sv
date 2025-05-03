@@ -1,1 +1,2 @@
-./fpga/wb_subordinate_interface/
+/fpga/wb_subordinate_interface/
+/tb/wb_subordinate/
