@@ -1,0 +1,12 @@
+[ options ]
+mode prove
+
+[ engines ]
+smtbmc --dumpsmt2
+
+[ script ]
+read -formal wb_subordinate_interface.sv
+prep -top wb_subordinate_interface
+
+[ files ]
+../rtl/wb_subordinate_interface.sv
