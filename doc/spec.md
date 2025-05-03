@@ -2,7 +2,7 @@
 
 **IP Name:** wb_subordinate_interface
 
-**Version:** 1.1.1
+**Version:** 1.1.3
 
 **Author:** Michael B.
 
@@ -71,7 +71,7 @@ This module implements a reusable Wishbone B4-compliant slave interface. It conn
 | i_ip_irq      | Input     | WB_DATA_WIDTH                        | Interrupt Register value   |
 | o_ip_address  | Output    | WB_REGISTER_ADDRESS_WIDTH            | Register offset for IP registers   |
 | i_ip_rdata    | Input     | WB_DATA_WIDTH                        | Data from IP register      |
-| i_ip_read_en  | Input     | 1                                    | Enable reading IP register |
+| o_ip_read_en  | Output    | 1                                    | Enable reading IP register |
 | o_ip_wdata    | Output    | WB_DATA_WIDTH                        | Data to IP register        |
 | o_ip_write_en | Output    | 1                                    | Enable writing IP register |
 | i_ip_ack | Input    | 1                                    | IP acknowledge |
@@ -126,9 +126,10 @@ The following diagrams illustrate transactions as implemented by this interface.
 | 1.1     | April 18, 2025   | Added timing diagrams     |
 | 1.1.1     | April 18, 2025 | Add o_ip_address, o_ip_ack, and o_wb_ack port. Rephrased wording for description of IP_VERSION and IP_DEVICE_ID parameter   |
 | 1.1.2 | April 18, 2025 | Fix typos |
+| 1.1.3 | April 18, 2025 | Changed i_ip_read_en to o_ip_read_en |
 
 
 ## 10. References
 
 - [Wishbone B4 Specification](https://cdn.opencores.org/downloads/wbspec_b4.pdf), OpenCores, Revision B4.
-- [Formal Wishbone Slave Checker](https://github.com/ZipCPU/wb2axip/tree/master/formal), ZipCPU GitHub repository.
+- [Formal Wishbone Slave Checker](https://github.com/ZipCPU/zipcpu/blob/master/rtl/ex/fwb_slave.v), ZipCPU GitHub repository.
