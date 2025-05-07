@@ -2,11 +2,11 @@
 
 **IP Name:** wb_subordinate_interface
 
-**Version:** 1.1.3
+**Version:** 1.1.4
 
 **Author:** Michael B.
 
-**Date:** April 18, 2025
+**Date:** May 6, 2025
 
 ---
 
@@ -68,7 +68,8 @@ This module implements a reusable Wishbone B4-compliant slave interface. It conn
 | o_ip_control  | Output    | WB_DATA_WIDTH                        | Control Register value     |
 | i_ip_status   | Input     | WB_DATA_WIDTH                        | Status Register value      |
 | o_ip_irq_mask | Input     | WB_DATA_WIDTH                        | Interrupt Mask register    |
-| i_ip_irq      | Input     | WB_DATA_WIDTH                        | Interrupt Register value   |
+| i_ip_irq      | Input     | WB_DATA_WIDTH                        | Value to store in Interrupt Register   |
+| o_ip_irq      | Input     | WB_DATA_WIDTH                        | Interrupt Register value   |
 | o_ip_address  | Output    | WB_REGISTER_ADDRESS_WIDTH            | Register offset for IP registers   |
 | i_ip_rdata    | Input     | WB_DATA_WIDTH                        | Data from IP register      |
 | o_ip_read_en  | Output    | 1                                    | Enable reading IP register |
@@ -127,6 +128,8 @@ The following diagrams illustrate transactions as implemented by this interface.
 | 1.1.1     | April 18, 2025 | Add o_ip_address, o_ip_ack, and o_wb_ack port. Rephrased wording for description of IP_VERSION and IP_DEVICE_ID parameter   |
 | 1.1.2 | April 18, 2025 | Fix typos |
 | 1.1.3 | April 18, 2025 | Changed i_ip_read_en to o_ip_read_en |
+| 1.1.4 | May 6, 2025 | Added o_ip_irq  |
+
 
 
 ## 10. References

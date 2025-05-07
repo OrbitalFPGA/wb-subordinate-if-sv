@@ -42,7 +42,8 @@ module wb_subordinate_interface #(
         o_ip_control,
         i_ip_status,
         // o_ip_irq_mask,
-        i_ip_irq
+        i_ip_irq,
+        o_ip_irq
     );
 
     localparam SELECT_WIDTH = WB_DATA_WIDTH / WB_DATA_GRANULARITY;
@@ -74,6 +75,8 @@ module wb_subordinate_interface #(
     input wire logic[WB_DATA_WIDTH-1:0] i_ip_status;
     // output logic[WB_DATA_WIDTH-1:0] o_ip_irq_mask;
     input wire logic[WB_DATA_WIDTH-1:0] i_ip_irq;
+    output wire logic[WB_DATA_WIDTH-1:0] o_ip_irq;
+
 
     /*
     Declarations
@@ -205,6 +208,7 @@ module wb_subordinate_interface #(
     assign ip_action = o_ip_write_en | o_ip_read_en;
 
     assign irq_value = (valid_transaction && i_wb_we && register_address == 16'h10) ? ((irq_reg) | (irq_mask_reg & i_ip_irq)) & (~sel_wb_dat) : ((irq_reg) | (irq_mask_reg & i_ip_irq));
+    assign o_ip_irq = irq_reg;
 
     always_ff @(posedge i_wb_clk)
         if (i_wb_rst)
